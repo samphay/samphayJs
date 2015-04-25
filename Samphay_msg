@@ -70,7 +70,7 @@
 			"left"	   : "0",
 			"width"	   : "100%",
 			"height"   : "100%",
-			"z-index"  : "999",
+			"z-index"  : "9999999999999",
 			"display"  : "none",
 			"background-color" : "rgba(0,0,0,.6)",
 			"opcity"   : "0"
@@ -93,7 +93,10 @@
 var msg = {	
 		version : {
 			"Author"  : "Samphay",
-			"Version" : "0.0.0-beta"
+			"version" : "0.0.1-beta",
+			"log" : {
+				"20150425" : "1,修复后面引用了会覆盖前面的内容的BUG -samphay;2,添加了tips方法"
+			}
 		},
 		alert : function(content,handle,okText,speed){
 			var alertInit = {
@@ -199,5 +202,11 @@ var msg = {
 					handle();
 				}
 			});
+		},
+		tips : function(message,time){
+			if(typeof(time) === "undefined"){
+				time = 1000;
+			};
+			msg.alert(message,time);
 		}
 	}
